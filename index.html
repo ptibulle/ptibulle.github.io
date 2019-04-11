@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
   <meta name="theme-color" content="#4F7DC9">
   <meta charset="UTF-8">
-  <title>Codelab Flutter - Devfest BDM</title>
+  <title>Codelab Flutter Breizh</title>
   <script src="../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
   <link rel="import" href="../../elements/codelab.html">
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
@@ -20,7 +20,7 @@
 </head>
 <body unresolved class="fullbleed">
 
-  <google-codelab title="Codelab Flutter - Devfest BDM"
+  <google-codelab title="Codelab Flutter Breizh"
                   environment="web"
                   feedback-link="">
     
@@ -89,7 +89,7 @@ class BreizhApp extends StatelessWidget {
           title: Text(&#39;Flutter Breizh&#39;),
         ),
         body: Center(
-          child: Text(&#39;Bonjour DevFest du Bout du Monde !&#39;),
+          child: Text(&#39;Hello Flutter Breizh !&#39;),
         ),
       ),
     );
@@ -115,6 +115,9 @@ class BreizhApp extends StatelessWidget {
 <li>A widget&#39;s main job is to provide a build method that describes how to display the widget in terms of other, lower-level widgets.</li>
 <li>The body for this example consists of a <a href="https://docs.flutter.io/flutter/widgets/Center-class.html" target="_blank">Center</a> widget containing a <a href="https://docs.flutter.io/flutter/widgets/Text-class.html" target="_blank">Text</a> child widget. The Center widget aligns its widget subtree to the center of the screen.</li>
 </ul>
+<aside class="special"><p><strong>Lost ?</strong></p>
+<p><a href="https://github.com/ptibulle/flutter_breizh/tree/master/step_03/flutter_breizh" target="_blank">https://github.com/ptibulle/flutter_breizh/tree/master/step_03/flutter_breizh</a></p>
+</aside>
 
 
       </google-codelab-step>
@@ -173,6 +176,9 @@ class BreizhApp extends StatelessWidget {
 <pre><code>home: PlaceListPage(),</code></pre>
 <p>If you save your work, you should see something like this:</p>
 <p><img style="max-width: 273.61px" src="img/e9dbd6eb47543fef.png"></p>
+<aside class="special"><p><strong>Lost ?</strong></p>
+<p><a href="https://github.com/ptibulle/flutter_breizh/tree/master/step_03/flutter_breizh" target="_blank">https://github.com/ptibulle/flutter_breizh/tree/master/step_04/flutter_breizh</a></p>
+</aside>
 
 
       </google-codelab-step>
@@ -181,7 +187,7 @@ class BreizhApp extends StatelessWidget {
         <p>In this step you&#39;ll create a <a href="https://material.io/design/components/lists.html#specs" target="_blank">Material list tile</a>. The <code>ListView</code> can take any widget for items but the <a href="https://docs.flutter.io/flutter/material/ListTile-class.html" target="_blank">ListTile</a> widgets offer a simple way to create Material themed list items.</p>
 <p>Our tile will look this this:</p>
 <p><img style="max-width: 634.51px" src="img/4483ded4deee8e99.png"></p>
-<p>In place_list.dart, add a new <code>StatelessWidget</code> called <code>_PlaceTile</code>. The <code>build</code> method will return a <code>ListTile</code> where the <code>title</code> will be a <code>Text</code> containting %Title% and the <code>subtitle</code> will be a <code>Text</code> containting %City%.</p>
+<p>In place_list.dart, add a new <code>StatelessWidget</code> called <code>_PlaceTile</code>. The <code>build</code> method will return a <code>ListTile</code> where the <code>title</code> will be a <code>Text</code> containing %Title% and the <code>subtitle</code> will be a <code>Text</code> containing %City%.</p>
 <p>The widget at the left of this tile will be a <a href="https://docs.flutter.io/flutter/widgets/Placeholder-class.html" target="_blank">Placeholder</a> with an explicit size of 100x56.</p>
 <aside class="special"><p><strong>Tip: </strong>Place a widget in a <a href="https://docs.flutter.io/flutter/widgets/SizedBox-class.html" target="_blank">SizedBox</a> to give it an explicit size.</p>
 </aside>
@@ -207,6 +213,11 @@ class BreizhApp extends StatelessWidget {
     );
   }
 }</code></pre>
+<p>If you save your work, you should see something like this:</p>
+<p><img style="max-width: 185.10px" src="img/39945dd87ab5105e.png"></p>
+<aside class="special"><p><strong>Lost ?</strong></p>
+<p><a href="https://github.com/ptibulle/flutter_breizh/tree/master/step_03/flutter_breizh" target="_blank">https://github.com/ptibulle/flutter_breizh/tree/master/step_05/flutter_breizh</a></p>
+</aside>
 
 
       </google-codelab-step>
@@ -215,166 +226,17 @@ class BreizhApp extends StatelessWidget {
         <p>In this step you will learn how to add an asset file.</p>
 <p>We love our region: the <strong>Brittany</strong>, so in this codelab you will learn how to display places from Brittany! The following data come from the site <a href="http://www.data-tourisme-bretagne.com" target="_blank">OpenData Tourisme Bretagne</a>.</p>
 <p>Create a new folder called <code>assets</code> in the root folder of your flutter project. In this folder create a new file called <code>places.json</code>.</p>
-<p>Copy/Paste the following content into this file:</p>
-<h3>places.json</h3>
-<pre><code>{
-    &#34;d&#34;: {
-        &#34;results&#34;: [
-            {
-                &#34;NUMID&#34;: &#34;PNA20160411_02&#34;,
-                &#34;TITRE&#34;: &#34;Grande Plage de Carnac&#34;,
-                &#34;ADRESSE1S&#34;: &#34;Boulevard de la plage&#34;,
-                &#34;CODEPOSTAL&#34;: &#34;56340&#34;,
-                &#34;COMMUNE&#34;: &#34;CARNAC&#34;,
-                &#34;LATITUDE&#34;: &#34;47.5719&#34;,
-                &#34;LONGITUDE&#34;: &#34;-3.067532&#34;,
-                &#34;DESCRIPTIF&#34;: &#34;Avec ses deux kilomètres de sable fin, la Grande Plage est la plus grande des cinq plages de la ville. En période estivale, la baignade y est surveillée et les sports nautiques peuvent se pratiquer en toute sécurité. Deux clubs de plage s&#39;y installent chaque été. A l&#39;ouest de la plage, le Yacht Club vous accueille toute l&#39;année pour vivre intensément la glisse sous toutes ces formes. A quelques pas, retrouvez de nombreux restaurants et commerces.La Grande Plage est également accessible aux handicapés moteurs grâce à du matériel adapté, tout ceci avec la présence de personnel qualifié avec accompagnement à la baignade, vestiaire, douche et wc adaptés. Le point accueil est ouvert du 1er week-end de juillet au dernier week-end d&#39;août inclus, tous les jours, de 13h à 19h. Le site de la Grande Plage est labellisée tourisme et handicap depuis 2007.Possibilité de se stationner le long de la Grande Plage. Interdite aux chiens.&#34;,
-                &#34;PHOTOS&#34;: &#34;http://cnstlltn.com/master/a1f38ab0-63a2-44d5-893f-97609083a9bb/crtb-ac8087_le+gal+yannick+grande+plage+carnac.jpg | http://cnstlltn.com/master/638ae42c-3075-4656-911a-e2f8a8ca5aa4/mt-a_lamoureux-carnac+plage1.jpg | http://cnstlltn.com/master/d1336d88-765f-437b-b45f-f18c475261e6/plage-de-carnac-y-legal.jpg&#34;
-            },
-            {
-                &#34;NUMID&#34;: &#34;PNA20160411_06&#34;,
-                &#34;TITRE&#34;: &#34;Grande Plage de Quiberon&#34;,
-                &#34;ADRESSE1S&#34;: &#34;1 boulevard Chanard&#34;,
-                &#34;CODEPOSTAL&#34;: &#34;56170&#34;,
-                &#34;COMMUNE&#34;: &#34;QUIBERON&#34;,
-                &#34;LATITUDE&#34;: &#34;47.47826&#34;,
-                &#34;LONGITUDE&#34;: &#34;-3.116585&#34;,
-                &#34;DESCRIPTIF&#34;: &#34;Au coeur de Quiberon, la Grande Plage avec ses 900 mètres de sable fin, orientée plein sud est accessible à tous, y compris pour les personnes à mobilité réduite. Vous y trouverez un parking à vélo, douches et WC, de la location de tentes et un club de plage pour vos enfants. L&#39;été, pour votre sécurité, la baignade est y surveillée depuis son poste de secours. Possibilité de louer un fauteuil de bain à la 1/2 journée pour les personnes à mobilité réduite auprès du Fisher Club.Longeant la Grande Plage depuis Port Maria jusqu&#39;au Casino, la Promenade de la Plage et le Boulevard Chanard constituent une promenade des plus plaisantes.&#34;,
-                &#34;PHOTOS&#34;: &#34;http://cnstlltn.com/master/a9a79ba8-7da3-43e9-8507-a49765850e1a/cdt56-aj-grande+plage+de+quiberon.jpg&#34;
-            },
-            {
-                &#34;NUMID&#34;: &#34;PNABRE0220HA6259&#34;,
-                &#34;TITRE&#34;: &#34;Cap Fréhel&#34;,
-                &#34;CODEPOSTAL&#34;: &#34;22240&#34;,
-                &#34;COMMUNE&#34;: &#34;Plévenon&#34;,
-                &#34;LATITUDE&#34;: &#34;48.6850675&#34;,
-                &#34;LONGITUDE&#34;: &#34;-2.3173427&#34;,
-                &#34;DESCRIPTIF&#34;: &#34;Site classé. Au bout de 400 ha de landes, spectaculaire cap de grès rose surplombant la mer de 70 m. Oiseaux marins dans les falaises et sur 3 îlots : Cormorans huppés, Mouettes tridactyles, Guillemots de Troïl... GR 34 et PR.&#34;,
-                &#34;PHOTOS&#34;: &#34;https://cdt29.media.tourinsoft.eu/upload/29FC6455-7E41-4ABA-BE2A-7326EFBF128B/Capfrehel-plevenon.jpg | https://cdt29.media.tourinsoft.eu/upload/DEF565FA-572B-4926-BCBF-DFB120F20956/Capfrehel-plevenon-2017-ronangladu.jpg&#34;
-            },
-            {
-                &#34;NUMID&#34;: &#34;PNABRE0220HA625A&#34;,
-                &#34;TITRE&#34;: &#34;Flèche dunaire de Sable-d&#39;Or-les-Pins&#34;,
-                &#34;CODEPOSTAL&#34;: &#34;22240&#34;,
-                &#34;COMMUNE&#34;: &#34;Fréhel&#34;,
-                &#34;LATITUDE&#34;: &#34;48.6411328&#34;,
-                &#34;LONGITUDE&#34;: &#34;-2.4176358&#34;,
-                &#34;DESCRIPTIF&#34;: &#34;Situé entre le cap d&#39;Erquy et le cap Fréhel, l&#39;estuaire de l&#39;Islet est un espace naturel d&#39;une grande beauté soumis au mouvement biquotidien des marées.\nEn partie fermé au nord par une flèche dunaire en perpétuelle évolution, cet estuaire d&#39;environ 50 ha est baigné par la mer à marée haute et traversé par l&#39;Islet à marée basse.\n\nUne balade de 2,5 km vous permet de découvrir le site : http://bit.ly/ideebalade-dunessablesdor&#34;,
-                &#34;PHOTOS&#34;: &#34;https://cdt29.media.tourinsoft.eu/upload/40B3B6AD-2996-4367-B2AF-DA95D51BCFBE/Flechedunaire-frehel-01.2016.jpg&#34;
-            },
-            {
-                &#34;NUMID&#34;: &#34;PNABRE029V50MU6I&#34;,
-                &#34;TITRE&#34;: &#34;Rochers et archipel&#34;,
-                &#34;ADRESSE1&#34;: &#34;Au large du Guilvinec-Léchiagat&#34;,
-                &#34;CODEPOSTAL&#34;: &#34;29730&#34;,
-                &#34;COMMUNE&#34;: &#34;Guilvinec&#34;,
-                &#34;LATITUDE&#34;: &#34;47.7711111&#34;,
-                &#34;LONGITUDE&#34;: &#34;-4.3408332&#34;,
-                &#34;DESCRIPTIF&#34;: &#34;Le Guilvinec et Léchiagat se partagent la ria « Penn Ar Stêr » soumise aux marées. Au large du port, côté Léchiagat, se trouve Karek Hir que l&#39;on peut voir à marée basse. Face à Kerity-Penmac&#39;h, émergent les Etocs, un groupe protégé d&#39;îlots en granit, accueillant une petite colonie de phoques gris.&#34;,
-                &#34;PHOTOS&#34;: &#34;https://cdt29.media.tourinsoft.eu/upload/726BC0E1-5F9D-461B-8BF7-7D61D48C3338/balades-en-mer-soizen-1-web.jpg&#34;
-            },
-            {
-                &#34;NUMID&#34;: &#34;PNABRE029V50MU9D&#34;,
-                &#34;TITRE&#34;: &#34;Dunes du Guilvinec&#34;,
-                &#34;ADRESSE1&#34;: &#34;Grève blanche&#34;,
-                &#34;CODEPOSTAL&#34;: &#34;29730&#34;,
-                &#34;COMMUNE&#34;: &#34;Guilvinec&#34;,
-                &#34;LATITUDE&#34;: &#34;47.7957989&#34;,
-                &#34;LONGITUDE&#34;: &#34;-4.2896371&#34;,
-                &#34;DESCRIPTIF&#34;: &#34;A l&#39;époque gauloise, les sables éoliens ont envahi le territoire qui allait devenir le Guilvinec. Des dunes de moyenne hauteur forment un barrage à la mer mais le vent a transporté le sable fin sur un kilomètre et demi jusqu&#39;au ruisseau de Lohan, formant une plaine dunaire.&#34;,
-                &#34;PHOTOS&#34;: &#34;https://cdt29.media.tourinsoft.eu/upload/0CE293D0-25F7-46F9-A6CF-5FDDE4C7279E/plage-Greve-blanche-Guilvinec-Valerie-Stephan--1-.JPG&#34;
-            },
-            {
-                &#34;NUMID&#34;: &#34;PNABRE029V50MUCL&#34;,
-                &#34;TITRE&#34;: &#34;Plages de Treffiagat-Léchiagat&#34;,
-                &#34;CODEPOSTAL&#34;: &#34;29730&#34;,
-                &#34;COMMUNE&#34;: &#34;Treffiagat&#34;,
-                &#34;LATITUDE&#34;: &#34;47.8071910&#34;,
-                &#34;LONGITUDE&#34;: &#34;-4.2615990&#34;,
-                &#34;DESCRIPTIF&#34;: &#34;La commune de Treffiagat-Léchiagat compte à elle seul 4,5 km de plages de sable fin, exposées au sud ! Dans l&#39;ordre depuis la Pointe de Léchiagat en direction de Lesconil :\n\n- PORS TREILLEN : pêche à pied (zone de rochers découverte à marée basse), parking\n- LEHAN : toilettes, aire de jeux, tables de pique-nique, espace naturel protégé, menhir trempé\n- SQUIVIDAN : centre nautique, toilettes\n- LE REUN : toilettes, menhir à 200m\n- KERSAUX : plage commune à Treffiagat et Lesconil\n\nNos plages sont familiales et idéales pour la baignade et la pratique des sports nautiques. Elles ne sont pas surveillées.\nChaque accès aux plages est équipé de parking. Les animaux ne sont pas admis sur nos plages.\n\nUne autre façon de profiter des plages et des dunes : longez à pied le cordon dunaire en empruntant le GR34, le mythique sentier des douaniers.  La pratique de la course à pied y est également très pratiquée.\nLe vélo est interdit sur le platelage en bois qui longe la plage de la Grève blanche.\n\nPréconisations :\n- Les dunes et la végétation maritime sont très fragiles ! Aidez à les préserver en empruntant exclusivement les chemins prévus pour la balade. Veuillez ne pas franchir les ganivelles.\n- Pour votre sécurité, les circuits pédestres sont exclusivement réservés aux piétons. Des circuits vélos sont aménagés pour les cyclistes.\n- Non, les plages ne sont pas sales ! les laisses de mer sont constituées de goémon qui n&#39;est pas un déchet mais le rejet naturel d&#39;un océan vivant. C&#39;est un milieu riche qui favorise la biodiversité.\n- Oui, même en Bretagne le soleil peut vous causer quelques soucis ! Protégez votre peau avec de l&#39;écran total, évitez de l&#39;exposer entre 12h et 15h et portez des lunettes de soleil !\n- La pêche à pied est un loisir fortement conseillé ! Mais attention à la marée, qui peut vous surprendre, même si vous êtes un(e) habitué(e) ! Pour que ce moment privilégié reste un plaisir, vérifier impérativement les horaires des marées et ne partez pas sans votre téléphone portable ! Si possible, prévenez une personne restée à terre de votre escapade. Aussi, renseigner vous à l&#39;office de tourisme, sur les tailles de capture à respecter et les interdictions temporaires éventuelles. Le fruit de votre pêche doit rester vivant jusqu&#39;à la cuisson/dégustation.&#34;,
-                &#34;PHOTOS&#34;: &#34;https://cdt29.media.tourinsoft.eu/upload/1A58DD49-0241-4359-8189-144519A53FDF/Plage-de-Treffiagat--1-.JPG | https://cdt29.media.tourinsoft.eu/upload/2F9E85BB-D3DD-4C20-9647-247AC63C9E1E/TREFFIAGAT-plage-rocher-sable-mer--21-.JPG | https://cdt29.media.tourinsoft.eu/upload/26F122B8-606D-4951-B35E-72CB4749B83D/Plage-Squividan.JPG | https://cdt29.media.tourinsoft.eu/upload/9F0C6C6B-AB28-43F9-9B56-CF1C4DFA75E7/TREFFIAGAT-plage-rocher-sable-mer--24-.JPG | https://cdt29.media.tourinsoft.eu/upload/10C0E73E-587A-452F-AE78-FEB29E3460EE/plage-marcheur-Lehan-Le-Baillif.JPG&#34;
-            },
-            {
-                &#34;NUMID&#34;: &#34;PNABRE029V50RHJ0&#34;,
-                &#34;TITRE&#34;: &#34;La Vallée de l&#39;Aulne&#34;,
-                &#34;CODEPOSTAL&#34;: &#34;29520&#34;,
-                &#34;COMMUNE&#34;: &#34;Châteauneuf-du-Faou&#34;,
-                &#34;LATITUDE&#34;: &#34;48.186198&#34;,
-                &#34;LONGITUDE&#34;: &#34;-3.8126340&#34;,
-                &#34;DESCRIPTIF&#34;: &#34;Pour des raisons économiques, l&#39;Aulne fut canalisée au  XIXème siècle et devint le Canal de Nantes à Brest.\n\tLe mauvais état des routes, les besoins de ravitaillement de Brest et de la flotte aux prises avec le blocus anglais lors des guerres napoléoniennes décidèrent du lancement de l&#39;entreprise. \nLa première pierre fut posée en 1811.  A partir de 1842, sur 360 km de long, 238 écluses permirent un trafic nécessaire au développement économique du centre Bretagne. \nCe furent ainsi les minerais, la houille, la fonte, le bois, les ardoises et les produits agricoles qui croisèrent les engrais destinés à l&#39;enrichissement des terres. \nLa 1ère guerre mondiale, la mise en service du chemin de fer mirent un net coup de frein à ce moyen de transport. Le coup de grâce intervint avec la construction du barrage hydroélectrique de Guerlédan sur le Blavet, en 1923. \nLe dernier chaland à franchir l&#39;écluse de Châteauneuf du Faou se présenta en 1942.\n        Actuellement, réservoir d&#39;eau pour le Centre et Sud Finistère, parcours de pêche,  de randonnées cyclistes, équestres ou pédestres, d&#39;activités nautiques, le splendide patrimoine environnemental que constitue notre canal vous attend.\n      Le charme de la pêche : Paradis pour les pêcheurs, le canal et les ruisseaux qui s&#39;y jettent sont parmi les cours d&#39;eau les plus poissonneux de Bretagne: saumon, alose, lamproie, truite, anguille, brochet, sandre, perche...   \n         Les vestiges des carrières ardoisières du Rick et de l&#39;Eau Verte, témoins d&#39;une activité ancienne. Aujourd&#39;hui abandonnées les galeries servent de refuges pour  le grand rhinolophe, l&#39;une des plus grandes chauves-souris de Bretagne.&#34;,
-                &#34;PHOTOS&#34;: &#34;https://cdt29.media.tourinsoft.eu/upload/D5D15717-2DE7-44EA-813E-7664F486D814/Faou-Aulne.JPG | https://cdt29.media.tourinsoft.eu/upload/6F199086-8208-468D-AA15-0D3EFC112AE2/IMG-0181-2.JPG | https://cdt29.media.tourinsoft.eu/upload/47C37DAF-C08B-4C52-AA0B-57655FE59A93/DSC01716.JPG | https://cdt29.media.tourinsoft.eu/upload/C36D38CA-307E-4D19-83A7-912C464DCBFE/IMG-0014.JPG | https://cdt29.media.tourinsoft.eu/upload/D312A6F3-18B3-4805-AE2B-15CEDF83E723/allee-couverte-2.jpg | https://cdt29.media.tourinsoft.eu/upload/53E21584-4440-4BA1-A914-D097D1F5B652/campagne-annick-2.jpeg | https://cdt29.media.tourinsoft.eu/upload/E8E4ACE9-CDC8-4CD2-B6BB-ACE6CE7C5BF6/campagne-annick-1.jpeg | https://cdt29.media.tourinsoft.eu/upload/D65C5958-362D-4509-AF7E-5D58717AAD10/campagne-printemps.jpeg | https://cdt29.media.tourinsoft.eu/upload/E681C72D-A599-47F6-BAC4-4205708EAD9F/campagne-printemsp-colza-2.jpeg | https://cdt29.media.tourinsoft.eu/upload/2F6BBDF3-6B2C-49C3-AF64-9AE02B8D3084/montagnes-noires.jpg&#34;
-            },
-            {
-                &#34;NUMID&#34;: &#34;PNABRE0351000020&#34;,
-                &#34;TITRE&#34;: &#34;La Pointe de la Varde&#34;,
-                &#34;CODEPOSTAL&#34;: &#34;35400&#34;,
-                &#34;COMMUNE&#34;: &#34;Saint-Malo&#34;,
-                &#34;LATITUDE&#34;: &#34;48.6836508&#34;,
-                &#34;LONGITUDE&#34;: &#34;-1.9895982&#34;,
-                &#34;DESCRIPTIF&#34;: &#34;Propriété du département Ille-et-Vilaine, qui gère et entretient ce site. Acquise par le Conservatoire de l&#39;espace littoral, cette pointe rocheuse, non urbanisée, ferme à l&#39;est la baie de Saint Malo. Historiquement, c&#39;était un lieu stratégique qui servait à défendre Saint Malo contre les assaillants venus d&#39;outre-Manche. La pointe de la Varde permet la découverte d&#39;un splendide point de vue sur la cité corsaire.&#34;,
-                &#34;PHOTOS&#34;: &#34;https://cdt29.media.tourinsoft.eu/upload/4481FD9A-5E1C-4D33-AFC5-BCD0C1285420/La-Pointe-de-la-Varde.jpg&#34;
-            },
-            {
-                &#34;NUMID&#34;: &#34;PNABRE0351000022&#34;,
-                &#34;TITRE&#34;: &#34;L&#39;Anse de Saint-Buc&#34;,
-                &#34;CODEPOSTAL&#34;: &#34;35870&#34;,
-                &#34;COMMUNE&#34;: &#34;Le Minihic-sur-Rance&#34;,
-                &#34;LATITUDE&#34;: &#34;48.571177&#34;,
-                &#34;LONGITUDE&#34;: &#34;-2.014551&#34;,
-                &#34;DESCRIPTIF&#34;: &#34;Propriété du département Ille-et-Vilaine, qui gère et entretient ce site. Au creux de l&#39;anse de Saint Buc se niche la vallée de Saint Buc.&#34;
-            },
-            {
-                &#34;NUMID&#34;: &#34;PNA20160411_53&#34;,
-                &#34;TITRE&#34;: &#34;Plage de Port Navalo&#34;,
-                &#34;ADRESSE1S&#34;: &#34;Rue du Général de Gaulle&#34;,
-                &#34;CODEPOSTAL&#34;: &#34;56640&#34;,
-                &#34;COMMUNE&#34;: &#34;ARZON&#34;,
-                &#34;LATITUDE&#34;: &#34;47.54571&#34;,
-                &#34;LONGITUDE&#34;: &#34;-2.913669&#34;,
-                &#34;DESCRIPTIF&#34;: &#34;Accès de la plage : accès par le chemin du Petit Mousse ou directement par la parking.La plage de Port Navalo est une des plages les plus réputées de la Presqu&#39;île de Rhuys. Cependant ses parkings saturés, en été, sont le revers de sa célébrité.Une astuce en juillet-août : garer votre voiture dès l&#39;entrée de la commune (parking à côté du Super U) et prenez l&#39;Arzibus, une navette gratuite qui prévoit un arrêt à Port Navalo, à 200 mètres de la plage.Services à proximité : parking, poste de secours SNSM, tables de pique-nique, restauration, club de plage, aire de jeux pour enfants.Certification Qualité des Eaux de Baignade 2017 : Excellente : 3 étoiles.&#34;,
-                &#34;PHOTOS&#34;: &#34;http://cnstlltn.com/master/a31fd416-222b-4721-a017-8227a25ac8ce/4156a34f-8841-4e8d-8959-237ed4079a7b_134.jpg | http://cnstlltn.com/master/0c8ce50d-4440-4f42-babd-678ead6af5ef/48b5bec1-948d-41ac-8ea2-8d2b179d0610_134.jpg&#34;
-            },
-            {
-                &#34;NUMID&#34;: &#34;PNA20160411_56&#34;,
-                &#34;TITRE&#34;: &#34;Plage de Port Sable&#34;,
-                &#34;ADRESSE1S&#34;: &#34;Promenade du Petit Mousse&#34;,
-                &#34;CODEPOSTAL&#34;: &#34;56640&#34;,
-                &#34;COMMUNE&#34;: &#34;ARZON&#34;,
-                &#34;LATITUDE&#34;: &#34;47.54242&#34;,
-                &#34;LONGITUDE&#34;: &#34;-2.908294&#34;,
-                &#34;DESCRIPTIF&#34;: &#34;Accès à la plage : accessible uniquement par le sentier côtier et pour les résidents du camping municipal de Port Sable.La plage de Port Sable est une plage assez confidentielle et pourtant non dénuée de charme. On y accède uniquement par un sentier côtier ou par le camping municipal de Port Sable, pour les campeurs. On y est aux premières loges pour assister à la valse des voiliers entrant et sortant du Port du Crouesty. Un spot à privilégier les jours de régates !Certification Qualité des Eaux de Baignade 2017 : Bonne : 2 étoiles.&#34;,
-                &#34;PHOTOS&#34;: &#34;http://cnstlltn.com/master/cb1f2429-096d-4f41-b394-07030bcb53df/180b24da-5789-4389-ad72-55fab08abd36_134.jpg&#34;
-            },
-            {
-                &#34;NUMID&#34;: &#34;PNA20160411_57&#34;,
-                &#34;TITRE&#34;: &#34;Plage de Port-Maria&#34;,
-                &#34;ADRESSE1S&#34;: &#34;Port-Maria&#34;,
-                &#34;CODEPOSTAL&#34;: &#34;56260&#34;,
-                &#34;COMMUNE&#34;: &#34;LARMOR PLAGE&#34;,
-                &#34;LATITUDE&#34;: &#34;47.70446&#34;,
-                &#34;LONGITUDE&#34;: &#34;-3.382868&#34;,
-                &#34;DESCRIPTIF&#34;: &#34;A proximité des restaurants et de sa promenade, la plage de Port-Maria est au centre de toutes les activités. Les enfants pourront profiter du club de plage. Des toilettes et des douches sont à disposition. Accès personnes à mobilité réduite. Les animaux ne sont pas acceptés. Parking et arrêt de bus proches. Bibliothèque de plage.Plage surveillée du 01 juillet au 31 août.&#34;,
-                &#34;PHOTOS&#34;: &#34;http://cnstlltn.com/master/9464ded2-cbe9-4a98-9558-1d869ba22e75/38824cef-9de1-4104-b8a8-652f0067ddea_134.jpg&#34;
-            },
-            {
-                &#34;NUMID&#34;: &#34;PNA20160411_58&#34;,
-                &#34;TITRE&#34;: &#34;Plage de Port Maria&#34;,
-                &#34;CODEPOSTAL&#34;: &#34;56730&#34;,
-                &#34;COMMUNE&#34;: &#34;ST GILDAS DE RHUYS&#34;,
-                &#34;LATITUDE&#34;: &#34;47.4936&#34;,
-                &#34;LONGITUDE&#34;: &#34;-2.834646&#34;,
-                &#34;DESCRIPTIF&#34;: &#34;La Plage de Port Maria est la petite plage la plus proche du bourg de St Gildas. Elle dispose de 2 accès : par la rue Pierre Mesmer depuis l&#39;église abbatiale ou par la rue Pierre Michelot depuis le port (Port aux Moines).La Plage de Port Maria est la petite plage la plus proche du bourg de St Gildas. Elle dispose de 2 accès : par la rue Pierre Mesmer depuis l&#39;église abbatiale ou par la rue Pierre Michelot depuis le port (Port aux Moines).La plage de Port Maria fait environ 150 mètres de long. Pratique :Baignade non surveillée. Animaux non autorisés.Sentier de randonnée pédestre GR 34.Certification Qualité des Eaux de Baignade 2017 : Bonne : 2 étoiles.&#34;,
-                &#34;PHOTOS&#34;: &#34;http://cnstlltn.com/1024x768/9ff88374-9c21-4a73-9761-c9525917c79b/port-maria.jpg&#34;
-            }
-        ]
-    }
-}</code></pre>
+<p>You can copy the following file from the repo :</p>
+<p><a href="https://raw.githubusercontent.com/ptibulle/flutter_breizh/master/step_06/flutter_breizh/assets/places.json" target="_blank">https://raw.githubusercontent.com/ptibulle/flutter_breizh/master/step_06/flutter_breizh/assets/places.json</a></p>
 <p>To be able to read it from our app, we need to add a reference to this asset in the pubspec.yaml file.</p>
 <p>Add it into under the assets section:</p>
 <h3><strong>pubspec.yaml</strong></h3>
-<pre><code> assets:
+<pre><code>  assets:
     - assets/places.json</code></pre>
 <aside class="special"><p><strong>Tip: </strong>The suggested syntax for YAML files is to use 2 spaces for indentation.</p>
+</aside>
+<aside class="special"><p><strong>Lost ?</strong></p>
+<p><a href="https://github.com/ptibulle/flutter_breizh/tree/master/step_03/flutter_breizh" target="_blank">https://github.com/ptibulle/flutter_breizh/tree/master/step_06/flutter_breizh</a></p>
 </aside>
 
 
@@ -451,7 +313,8 @@ class Place {
 }</code></pre>
 <p>In this class we have two top level functions, that can help us to convert a JSON object place to a Dart object place and the same for a collection of places.</p>
 <p>Now we will modify our app to read this data and display it.</p>
-<p>The first thing to do is to add a top level function called <code>getPlaces</code> in <code>place_list.dart</code>:</p>
+<h2><strong>Read the json file</strong></h2>
+<p>The first thing to do is to add a <strong>top level function</strong> called <code>getPlaces</code> in <code>place_list.dart</code>:</p>
 <h3><strong>place_list.dart</strong></h3>
 <pre><code>/// Gets a list of places from data-tourisme API.
 Future&lt;List&lt;Place&gt;&gt; getPlaces() async {
@@ -468,32 +331,8 @@ import &#39;package:flutter_breizh/data/place.dart&#39;;</code></pre>
 <aside class="special"><p><strong>Tip: </strong>We can import only a part of a module with the keyword <code>show</code>.</p>
 </aside>
 <p>The <code>rootBundle.loadString</code> will asynchronously read the asset file we previously created.</p>
-<p>We will also change the <code>body</code> of the <code>Scaffold</code> returned by the <code>PlaceListPage</code> so that it will use a <a href="https://docs.flutter.io/flutter/widgets/FutureBuilder-class.html" target="_blank">FutureBuilder</a> widget.</p>
-<p>A <code>FutureBuilder</code> is able to build itself based on the latest snapshot of interaction with a <a href="https://docs.flutter.io/flutter/dart-async/Future-class.html" target="_blank">Future</a>.</p>
-<h3><strong>place_list.dart</strong></h3>
-<pre><code>body: FutureBuilder&lt;List&lt;Place&gt;&gt;(
-        future: getPlaces(),
-        builder: (context, snapshot) {
-          if (!snapshot.hasData) {
-            return Center(
-              child: CircularProgressIndicator(),
-            );
-          } else if (snapshot.hasError) {
-            return Center(
-              child: Text(&#39;An error occurred&#39;),
-            );
-          } else {
-            return _PlaceList();
-          }
-        },
-      ),</code></pre>
-<aside class="warning"><p><strong>Important:</strong> It would be better if the <code>Future</code> was memoized, because it&#39;s <strong>NOT</strong> a good practice to create it during the <code>build</code> method. Our app is simple enough to be OK in our case, but in another cases it should be stored somewhere else.</p>
-<p>Quote from the documentation:</p>
-<p><em>The future must have been obtained earlier, e.g. during State.initState, State.didUpdateConfig, or State.didChangeDependencies. It must not be created during the State.build or StatelessWidget.build method call when constructing the FutureBuilder. If the future is created at the same time as the FutureBuilder, then every time the FutureBuilder&#39;s parent is rebuilt, the asynchronous task will be restarted.<br><br>A general guideline is to assume that every build method could get called every frame, and to treat omitted calls as an optimization.</em></p>
-</aside>
-<p>In the builder of the <code>FutureBuilder</code> we check if there are data, if not we show a progress indicator, then we check if there was an error, if so, we display a <code>Text</code> containing our error message. Finally if there are data and no error, we show the <code>_PlaceList</code> widget as before.</p>
-<p>For now, we read the data from the asset file and created the <code>FutureBuilder</code> to handle it. But we didn&#39;t use the data yet. So let&#39;s do it!</p>
-<p>Add a final variable of type <code>Place</code> called place in the <code>_PlaceTile</code> widget:</p>
+<h2><strong>Handle a Place data in the PlaceTile</strong></h2>
+<p>Add a final variable of type <code>Place</code> called place in the <code>_PlaceTile</code> widget and use it in the <code>build</code> method.</p>
 <h3><strong>place_list.dart</strong></h3>
 <pre><code>class _PlaceTile extends StatelessWidget {
   _PlaceTile({
@@ -503,8 +342,19 @@ import &#39;package:flutter_breizh/data/place.dart&#39;;</code></pre>
 
   final Place place;
 
-  ...
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: SizedBox(
+        width: 100,
+        height: 56,
+        child: Placeholder(),
+      ),
+      title: Text(place.title),
+      subtitle: Text(place.city),
+    );
+  }
 }</code></pre>
+<h2><strong>Handle a list of Places data in the PlaceList</strong></h2>
 <p>Add a final variable of type <code>List&lt;Place&gt;</code> called places in the <code>_PlaceList</code> widget and change the <code>build</code> method to in order to use this list:</p>
 <h3><strong>place_list.dart</strong></h3>
 <pre><code>class _PlaceList extends StatelessWidget {
@@ -526,9 +376,29 @@ import &#39;package:flutter_breizh/data/place.dart&#39;;</code></pre>
     );
   }
 }</code></pre>
-<p>In the <code>PlaceListPage</code> widget, modify the <code>build</code> method so that we get the list of the places which have pictures and pass it to the <code>_PlaceList</code>.</p>
+<h2><strong>Build the List with a progress indicator while accessing data</strong></h2>
+<p>Change the <code>body</code> of the <code>Scaffold</code> returned by the <code>PlaceListPage</code> so that it will use a <a href="https://docs.flutter.io/flutter/widgets/FutureBuilder-class.html" target="_blank">FutureBuilder</a> widget.</p>
+<p>A <code>FutureBuilder</code> is able to build itself based on the latest snapshot of interaction with a <a href="https://docs.flutter.io/flutter/dart-async/Future-class.html" target="_blank">Future</a>.</p>
 <h3><strong>place_list.dart</strong></h3>
-<pre><code>          } else {
+<pre><code>class PlaceListPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(&#39;Flutter Breizh&#39;),
+      ),
+      body: FutureBuilder&lt;List&lt;Place&gt;&gt;(
+        future: getPlaces(),
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          } else if (snapshot.hasError) {
+            return Center(
+              child: Text(&#39;An error occurred&#39;),
+            );
+          } else {
             final places = snapshot.data
                 .where((place) =&gt;
                     place.pictures != null &amp;&amp; place.pictures.length &gt; 0)
@@ -536,22 +406,22 @@ import &#39;package:flutter_breizh/data/place.dart&#39;;</code></pre>
             return _PlaceList(
               places: places,
             );
-          }</code></pre>
-<p>We have one last thing to do: change the <code>build</code> method of the <code>_PlaceTile</code> widget so that it will use the data from the <code>place</code>.</p>
-<h3><strong>place_list.dart</strong></h3>
-<pre><code> Widget build(BuildContext context) {
-    return ListTile(
-      leading: SizedBox(
-        width: 100,
-        height: 56,
-        child: Placeholder(),
+          }        
+        },
       ),
-      title: Text(place.title),
-      subtitle: Text(place.city),
     );
-  }</code></pre>
+  }
+}</code></pre>
+<aside class="warning"><p><strong>Important:</strong> It would be better if the <code>Future</code> was memoized, because it&#39;s <strong>NOT</strong> a good practice to create it during the <code>build</code> method. Our app is simple enough to be OK in our case, but in another cases it should be stored somewhere else.</p>
+<p>Quote from the documentation:</p>
+<p><em>The future must have been obtained earlier, e.g. during State.initState, State.didUpdateConfig, or State.didChangeDependencies. It must not be created during the State.build or StatelessWidget.build method call when constructing the FutureBuilder. If the future is created at the same time as the FutureBuilder, then every time the FutureBuilder&#39;s parent is rebuilt, the asynchronous task will be restarted.<br><br>A general guideline is to assume that every build method could get called every frame, and to treat omitted calls as an optimization.</em></p>
+</aside>
+<p>In the builder of the <code>FutureBuilder</code> we check if there are data, if not we show a progress indicator, then we check if there was an error, if so, we display a <code>Text</code> containing our error message. Finally if there are data and no error, we show the <code>_PlaceList</code> widget as before.</p>
 <p>If you save the file you will notice that the <code>title</code> and <code>subtitle</code> are correctly set from the different places, but since we didn&#39;t change the <code>Placeholder</code> we don&#39;t have an image yet. Let&#39;s change this in the next step.</p>
 <p><img style="max-width: 273.61px" src="img/f299a68f1e7971d8.png"></p>
+<aside class="special"><p><strong>Lost ?</strong></p>
+<p><a href="https://github.com/ptibulle/flutter_breizh/tree/master/step_03/flutter_breizh" target="_blank">https://github.com/ptibulle/flutter_breizh/tree/master/step_07/flutter_breizh</a></p>
+</aside>
 
 
       </google-codelab-step>
@@ -580,6 +450,9 @@ import &#39;package:flutter_breizh/data/place.dart&#39;;</code></pre>
         ),</code></pre>
 <p>Now you should see the images:</p>
 <p><img style="max-width: 273.61px" src="img/9037e1c3ca53c5b.png"></p>
+<aside class="special"><p><strong>Lost ?</strong></p>
+<p><a href="https://github.com/ptibulle/flutter_breizh/tree/master/step_03/flutter_breizh" target="_blank">https://github.com/ptibulle/flutter_breizh/tree/master/step_08/flutter_breizh</a></p>
+</aside>
 
 
       </google-codelab-step>
@@ -603,6 +476,9 @@ import &#39;package:flutter_breizh/data/place.dart&#39;;</code></pre>
   }
   return placesFromJson(json);
 }</code></pre>
+<aside class="special"><p><strong>Lost ?</strong></p>
+<p><a href="https://github.com/ptibulle/flutter_breizh/tree/master/step_03/flutter_breizh" target="_blank">https://github.com/ptibulle/flutter_breizh/tree/master/step_09/flutter_breizh</a></p>
+</aside>
 
 
       </google-codelab-step>
@@ -666,6 +542,9 @@ class _PlaceTileState extends State&lt;_PlaceTile&gt; {
 </aside>
 <p>Hot reload the app. You should be able to tap any icon to favorite, or unfavorite, the entry. Tapping a heart icon generates an implicit ink splash animation emanating from the tap point.</p>
 <p><img style="max-width: 273.61px" src="img/726f03a1ecb37df1.png"></p>
+<aside class="special"><p><strong>Lost ?</strong></p>
+<p><a href="https://github.com/ptibulle/flutter_breizh/tree/master/step_03/flutter_breizh" target="_blank">https://github.com/ptibulle/flutter_breizh/tree/master/step_10/flutter_breizh</a></p>
+</aside>
 
 
       </google-codelab-step>
@@ -705,7 +584,120 @@ class PlaceDetailPage extends StatelessWidget {
 <p>You will also have to add the import to the module containing <code>PlaceDetailPage</code>.</p>
 <h3><strong>place_list.dart</strong></h3>
 <pre><code>import &#39;package:flutter_breizh/place_detail.dart&#39;;</code></pre>
-<p>Now, if you tap on a tile, the app will navigate to this new page.<br><img style="max-width: 273.61px" src="img/4c2f5e66bddd2999.png"></p>
+<p>Now, if you tap on a tile, the app will navigate to this new page.<br></p>
+<p><img style="max-width: 273.61px" src="img/4c2f5e66bddd2999.png"></p>
+<p>Now add a title, pictures and description in the detail.</p>
+<h3><strong>place_detail.dart</strong></h3>
+<pre><code>import &#39;package:cached_network_image/cached_network_image.dart&#39;;
+
+ ...
+
+  @override
+  Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          place.title,
+          style: textTheme.title.copyWith(color: Colors.white),
+        ),
+      ),
+      body: ListView.builder(
+        padding: const EdgeInsets.all(16.0),
+        itemCount: place.pictures.length + 1,
+        itemBuilder: (BuildContext _context, int i) {
+          if (i == 0) { // Main Picture
+            return CachedNetworkImage(
+              placeholder: Container(
+                color: Colors.black12,
+              ),
+              imageUrl: place.pictures[0],
+              fit: BoxFit.cover,
+            );
+          } else if (i == 1) { // Description
+            return Padding(
+                padding: const EdgeInsets.only(top: 16),
+                child: Text(
+                  place.description,
+                  style: textTheme.subhead,
+                )
+            );
+          } else { // Pictures
+            return Padding(
+              padding: const EdgeInsets.only(top: 16),
+              child: CachedNetworkImage(
+                      placeholder: Container(
+                        color: Colors.black12,
+                      ),
+                      imageUrl: place.pictures[i-1],
+                      fit: BoxFit.cover,
+                    )
+            );
+          }
+        }
+      ),
+    );
+  }</code></pre>
+<aside class="special"><p><strong>Lost ?</strong></p>
+<p><a href="https://github.com/ptibulle/flutter_breizh/tree/master/step_03/flutter_breizh" target="_blank">https://github.com/ptibulle/flutter_breizh/tree/master/step_11/flutter_breizh</a></p>
+</aside>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Add a Hero animation" duration="10">
+        <p>In this section you will learn how to create <a href="https://docs.flutter.io/flutter/widgets/Hero-class.html" target="_blank">Hero</a> animations between two pages of your app.</p>
+<p>If you want to create beautiful transitions between pages with common widgets, you can use the Hero widget. This widget will move widgets with the same id from one route to another.</p>
+<p>We will add Hero animations for four widgets, the image in the list item to the image in the sliver app bar and the title in the list item to the title in the sliver app bar. </p>
+<h2><strong>The image</strong></h2>
+<h3><strong>place_list.dart</strong></h3>
+<pre><code>leading: SizedBox(
+  width: 100,
+  height: 56,
+  child: Hero(
+    tag: &#39;image_${widget.place.numid}&#39;,
+    child: CachedNetworkImage(
+      placeholder: Container(
+        color: Colors.black12,
+      ),
+      imageUrl: widget.place.pictures[0],
+      fit: BoxFit.cover,
+    ),
+  ),
+),</code></pre>
+<h3><strong>place_detail.dart</strong></h3>
+<pre><code>                if (i == 0) { // Image Principale
+                  return Hero(
+                    tag: &#39;image_${place.numid}&#39;,
+                    child: CachedNetworkImage(
+                      placeholder: Container(
+                        color: Colors.black12,
+                      ),
+                      imageUrl: place.pictures[0],
+                      fit: BoxFit.cover,
+                    ),
+                  );</code></pre>
+<h2><strong>The title</strong></h2>
+<h3><strong>place_list.dart</strong></h3>
+<pre><code>title: Hero(
+  tag: &#39;title_${widget.place.numid}&#39;,
+  child: Text(
+    widget.place.title,
+    style: Theme.of(context).textTheme.subhead,
+  ),
+),</code></pre>
+<h3><strong>place_detail.dart</strong></h3>
+<pre><code>            title: Hero(
+              tag: &#39;title_${place.numid}&#39;,
+              child: Text(
+                place.title,
+                style: textTheme.title.copyWith(color: Colors.white),
+              ),
+            ),</code></pre>
+<aside class="special"><p><strong>Lost ?</strong></p>
+<p><a href="https://github.com/ptibulle/flutter_breizh/tree/master/step_03/flutter_breizh" target="_blank">https://github.com/ptibulle/flutter_breizh/tree/master/step_12/flutter_breizh</a></p>
+</aside>
 
 
       </google-codelab-step>
@@ -716,6 +708,7 @@ class PlaceDetailPage extends StatelessWidget {
 <p>We want to achieve the following design:</p>
 <p><img style="max-width: 273.61px" src="img/b11381ae8a4b6946.png"></p>
 <p>The first thing to do in order to use multiple slivers, is to create a <a href="https://docs.flutter.io/flutter/widgets/CustomScrollView-class.html" target="_blank">CustomScrollView</a>. We will also add a <a href="https://docs.flutter.io/flutter/material/SliverAppBar-class.html" target="_blank">SliverAppBar</a> which is an <code>AppBar</code> that can be used into a <code>CustomScrollView</code> and can respond to the scroll.</p>
+<p>Let&#39;s remove the previous &#34;boring&#34; code from the scaffold and start to play with the slivers !  </p>
 <h3><strong>place_detail.dart</strong></h3>
 <pre><code>Widget build(BuildContext context) {
   final textTheme = Theme.of(context).textTheme;
@@ -724,9 +717,12 @@ class PlaceDetailPage extends StatelessWidget {
     body: CustomScrollView(
       slivers: &lt;Widget&gt;[
         SliverAppBar(
-          title: Text(
-            place.title,
-            style: textTheme.title.copyWith(color: Colors.white),
+          title: Hero(
+           tag: &#39;title_${place.numid}&#39;,
+           child: Text(
+             place.title,
+             style: textTheme.title.copyWith(color: Colors.white),
+            ),
           ),
         ),
       ],
@@ -860,6 +856,9 @@ SliverPadding(
         .toList(),
   ),
 ),</code></pre>
+<aside class="special"><p><strong>Lost ?</strong></p>
+<p><a href="https://github.com/ptibulle/flutter_breizh/tree/master/step_03/flutter_breizh" target="_blank">https://github.com/ptibulle/flutter_breizh/tree/master/step_13/flutter_breizh</a></p>
+</aside>
 
 
       </google-codelab-step>
@@ -869,27 +868,35 @@ SliverPadding(
 <p>The <code>SliverAppBar</code> can be pinned at the top and change its size when the user scrolls. To do that we will have to set the <code>pinned</code> and <code>expandedHeight</code> parameters.</p>
 <h3><strong>place_detail.dart</strong></h3>
 <pre><code>SliverAppBar(
-  title: Text(
-    place.title,
-    style: textTheme.title.copyWith(color: Colors.white),
+  title: Hero(
+    tag: &#39;title_${place.numid}&#39;,
+    child: Text(
+      place.title,
+      style: textTheme.title.copyWith(color: Colors.white),
+    ),
   ),
   pinned: true,
   expandedHeight: 256,
 ),</code></pre>
 <p><img style="max-width: 273.61px" src="img/9c0ef977e55e83b9.png"></p>
 <p>It would be better with an image in the app bar, no? Let&#39;s do this!</p>
-<p>We will use a <a href="https://docs.flutter.io/flutter/material/FlexibleSpaceBar-class.html" target="_blank">FlexibleSpaceBar</a> to manage the background of this app bar:</p>
+<p>Just add a <a href="https://docs.flutter.io/flutter/material/FlexibleSpaceBar-class.html" target="_blank">FlexibleSpaceBar</a> in the SliverAppBar widget to manage the background of this app bar :</p>
 <h3><strong>place_detail.dart</strong></h3>
-<pre><code>flexibleSpace: FlexibleSpaceBar(
+<pre><code>pinned: true,
+expandedHeight: 256,
+flexibleSpace: FlexibleSpaceBar(
   background: Stack(
     fit: StackFit.expand,
     children: &lt;Widget&gt;[
-      CachedNetworkImage(
-        placeholder: Container(
-          color: Colors.black12,
+      Hero(
+        tag: &#39;image_${place.numid}&#39;,
+        child: CachedNetworkImage(
+          placeholder: Container(
+            color: Colors.black12,
+          ),
+          imageUrl: place.pictures[0],
+          fit: BoxFit.cover,
         ),
-        imageUrl: place.pictures[0],
-        fit: BoxFit.cover,
       ),
       // This gradient ensures that the toolbar icons are distinct
       // against the background image.
@@ -923,58 +930,9 @@ AspectRatio(
   ),
 ),</code></pre>
 <p><img style="max-width: 273.61px" src="img/cdf901da744feeb7.png"></p>
-
-
-      </google-codelab-step>
-    
-      <google-codelab-step label="Add a Hero animation" duration="10">
-        <p>In this section you will learn how to create <a href="https://docs.flutter.io/flutter/widgets/Hero-class.html" target="_blank">Hero</a> animations between two pages of your app.</p>
-<p>If you want to create beautiful transitions between pages with common widgets, you can use the Hero widget. This widget will move widgets with the same id from one route to another.</p>
-<p>We will add Hero animations for four widgets, the image in the list item to the image in the sliver app bar and the title in the list item to the title in the sliver app bar. </p>
-<h2><strong>The image</strong></h2>
-<h3><strong>place_list.dart</strong></h3>
-<pre><code>leading: SizedBox(
-  width: 100,
-  height: 56,
-  child: Hero(
-    tag: &#39;image_${widget.place.numid}&#39;,
-    child: CachedNetworkImage(
-      placeholder: Container(
-        color: Colors.black12,
-      ),
-      imageUrl: widget.place.pictures[0],
-      fit: BoxFit.cover,
-    ),
-  ),
-),</code></pre>
-<h3><strong>place_detail.dart</strong></h3>
-<pre><code>Hero(
-                    tag: &#39;image_${place.numid}&#39;,
-                    child: CachedNetworkImage(
-                      placeholder: Container(
-                        color: Colors.black12,
-                      ),
-                      imageUrl: place.pictures[0],
-                      fit: BoxFit.cover,
-                    ),
-                  ),</code></pre>
-<h2><strong>The title</strong></h2>
-<h3><strong>place_list.dart</strong></h3>
-<pre><code>title: Hero(
-  tag: &#39;title_${widget.place.numid}&#39;,
-  child: Text(
-    widget.place.title,
-    style: Theme.of(context).textTheme.subhead,
-  ),
-),</code></pre>
-<h3><strong>place_detail.dart</strong></h3>
-<pre><code>title: Hero(
-              tag: &#39;title_${place.numid}&#39;,
-              child: Text(
-                place.title,
-                style: textTheme.title.copyWith(color: Colors.white),
-              ),
-            ),</code></pre>
+<aside class="special"><p><strong>Lost ?</strong></p>
+<p><a href="https://github.com/ptibulle/flutter_breizh/tree/master/step_03/flutter_breizh" target="_blank">https://github.com/ptibulle/flutter_breizh/tree/master/step_14/flutter_breizh</a></p>
+</aside>
 
 
       </google-codelab-step>

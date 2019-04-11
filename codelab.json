@@ -4,11 +4,11 @@
   "format": "html",
   "prefix": "../../",
   "mainga": "UA-49880327-14",
-  "updated": "2019-02-19T13:57:39Z",
+  "updated": "2019-04-11T12:15:39Z",
   "id": "your-first-flutterapp",
   "duration": 90,
-  "title": "Codelab Flutter - Devfest BDM",
-  "author": "Romain Rastel et Pierre Tibulle",
+  "title": "Codelab Flutter Breizh",
+  "author": "Romain Rastel, Horacio Gonzales et Pierre Tibulle",
   "summary": "In this codelab, you'll build a Flutter App with images, json data, list, detailed page, hero animation, and more !!!",
   "theme": "mobile",
   "status": [
@@ -18,7 +18,6 @@
     "Mobile"
   ],
   "tags": [
-    "devfestbdm",
     "flutter",
     "mobile"
   ],
