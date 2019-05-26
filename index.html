@@ -428,21 +428,21 @@ import &#39;package:flutter_breizh/data/place.dart&#39;;</code></pre>
     
       <google-codelab-step label="Use an external package" duration="5">
         <p>In this step, you&#39;ll start using an open-source package named  <strong>cached_network_image</strong>, which is a Flutter library to show images from the internet and keep them in the cache directory.<br><br>You can find the <strong>cached_network_image</strong> package, as well as many other open source packages, on <a href="https://pub.dartlang.org/" target="_blank">pub.dartlang.org</a>.</p>
-<p>The pubspec file also manages the packages for a Flutter app. In <strong>pubspec.yaml,</strong> append <code>cached_network_image: ^0.5.1</code> (<strong>cached_network_image</strong> 0.5.1 or higher) to the dependencies list:</p>
+<p>The pubspec file also manages the packages for a Flutter app. In <strong>pubspec.yaml,</strong> append <code>cached_network_image: ^0.8.0</code> (<strong>cached_network_image</strong> 0.8.0 or higher) to the dependencies list:</p>
 <h3><strong>pubspec.yaml</strong></h3>
 <pre><code>dependencies:
   flutter:
     sdk: flutter
 
   cupertino_icons: ^0.1.2
-  cached_network_image: ^0.5.1</code></pre>
+  cached_network_image: ^0.8.0</code></pre>
 <p>In <strong>place_list.dart </strong>import the new package:</p>
 <h3><strong>place_list.dart</strong></h3>
 <pre><code>import &#39;package:cached_network_image/cached_network_image.dart&#39;;</code></pre>
 <p>Now we can display the first picture of the place by modifying the <code>child</code> of the <code>SizedBox</code> used in the <code>_PlaceTile</code> widget.</p>
 <h3><strong>place_list.dart</strong></h3>
 <pre><code>child: CachedNetworkImage(
-          placeholder: Container(
+          placeholder: (context, url) =&gt; Container(
             color: Colors.black12,
           ),
           imageUrl: place.pictures[0],
@@ -457,20 +457,21 @@ import &#39;package:flutter_breizh/data/place.dart&#39;;</code></pre>
 
       </google-codelab-step>
     
-      <google-codelab-step label="Add real data" duration="5">
-        <p>In this step you will learn how to fetch real data from an REST API.</p>
-<p>We will use the http package to get real data from the OpenData Tourisme Bretagne API.</p>
-<p>Add the following import in order to use this package:</p>
+      <google-codelab-step label="Fetch real data" duration="5">
+        <p>In this step you will learn how to fetch real data from a REST API.</p>
+<p>We will use the http package to get real data from the OpenData Tourisme Bretagne API and the convert package to decode utf8 format.</p>
+<p>Add the following imports in order to use these packages :</p>
 <h3><strong>place_list.dart</strong></h3>
-<pre><code>import &#39;package:http/http.dart&#39; as http;</code></pre>
-<p>Then change the <code>getPlaces</code> method to get real data from this url: <a href="http://www.data-tourisme-bretagne.com/dataserver/tourismebretagne/data/patnaturelBREfr?%5C$format=json&%5C$top=1000" target="_blank">http://www.data-tourisme-bretagne.com/dataserver/tourismebretagne/data/patnaturelBREfr?\$format=json&amp;\$top=1000</a> and to fallback to the file asset data when there is an error.</p>
+<pre><code>import &#39;package:http/http.dart&#39; as http;
+import &#39;dart:convert&#39;;</code></pre>
+<p>Then change the <code>getPlaces</code> method to get real data from this url: <a href="http://www.data-tourisme-bretagne.com/dataserver/tourismebretagne/data/patnaturelBREfr?%5C$format=json&%5C$top=1000" target="_blank">http://www.data-tourisme-bretagne.com/dataserver/tourismebretagne/data/patnaturelBREfr?\$format=json&amp;\$top=1000</a> (no longer available, you can use these mocked url instead : <a href="https://api.myjson.com/bins/ybkmk" target="_blank">https://api.myjson.com/bins/ybkmk</a> ) and to fallback to the file asset data when there is an error.</p>
 <h3><strong>place_list.dart</strong></h3>
 <pre><code>Future&lt;List&lt;Place&gt;&gt; getPlaces() async {
   String json;
   final response = await http.get(
-      &#34;http://www.data-tourisme-bretagne.com/dataserver/tourismebretagne/data/patnaturelBREfr?\$format=json&amp;\$top=1000&#34;);
+      &#34;https://api.myjson.com/bins/ybkmk&#34;);
   if (response.statusCode == 200) {
-    json = response.body;
+    json = utf8.decode(response.bodyBytes);
   } else {
     json = await rootBundle.loadString(&#39;assets/places.json&#39;);
   }
@@ -512,7 +513,7 @@ class _PlaceTileState extends State&lt;_PlaceTile&gt; {
        width: 100,
        height: 56,
        child: CachedNetworkImage(
-         placeholder: Container(
+         placeholder: (context, url) =&gt; Container(
            color: Colors.black12,
          ),
          imageUrl: widget.place.pictures[0],
@@ -541,6 +542,8 @@ class _PlaceTileState extends State&lt;_PlaceTile&gt; {
 <aside class="special"><p><strong>Tip:</strong> In Flutter&#39;s reactive style framework, calling <code>setState()</code> triggers a call to the <code>build()</code> method for the State object, resulting in an update to the UI.</p>
 </aside>
 <p>Hot reload the app. You should be able to tap any icon to favorite, or unfavorite, the entry. Tapping a heart icon generates an implicit ink splash animation emanating from the tap point.</p>
+<aside class="special"><p><strong>To go further : </strong>In this example, the state is fixed on the Tile. If the Tile disappears and reappears, it is not the same Tile Object so his state is renewed. Can you imagine a way to conserve this state ?</p>
+</aside>
 <p><img style="max-width: 273.61px" src="img/726f03a1ecb37df1.png"></p>
 <aside class="special"><p><strong>Lost ?</strong></p>
 <p><a href="https://github.com/ptibulle/flutter_breizh/tree/master/step_10/flutter_breizh" target="_blank">https://github.com/ptibulle/flutter_breizh/tree/master/step_10/flutter_breizh</a></p>
@@ -609,7 +612,7 @@ class PlaceDetailPage extends StatelessWidget {
         itemBuilder: (BuildContext _context, int i) {
           if (i == 0) { // Main Picture
             return CachedNetworkImage(
-              placeholder: Container(
+              placeholder: (context, url) =&gt; Container(
                 color: Colors.black12,
               ),
               imageUrl: place.pictures[0],
@@ -627,7 +630,7 @@ class PlaceDetailPage extends StatelessWidget {
             return Padding(
               padding: const EdgeInsets.only(top: 16),
               child: CachedNetworkImage(
-                      placeholder: Container(
+                      placeholder: (context, url) =&gt; Container(
                         color: Colors.black12,
                       ),
                       imageUrl: place.pictures[i-1],
@@ -658,7 +661,7 @@ class PlaceDetailPage extends StatelessWidget {
   child: Hero(
     tag: &#39;image_${widget.place.numid}&#39;,
     child: CachedNetworkImage(
-      placeholder: Container(
+      placeholder: (context, url) =&gt; Container(
         color: Colors.black12,
       ),
       imageUrl: widget.place.pictures[0],
@@ -671,7 +674,7 @@ class PlaceDetailPage extends StatelessWidget {
                   return Hero(
                     tag: &#39;image_${place.numid}&#39;,
                     child: CachedNetworkImage(
-                      placeholder: Container(
+                      placeholder: (context, url) =&gt; Container(
                         color: Colors.black12,
                       ),
                       imageUrl: place.pictures[0],
@@ -847,7 +850,7 @@ SliverPadding(
     children: place.pictures
         .skip(1)
         .map((picture) =&gt; CachedNetworkImage(
-              placeholder: Container(
+              placeholder: (context, url) =&gt; Container(
                 color: Colors.black12,
               ),
               imageUrl: picture,
@@ -891,7 +894,7 @@ flexibleSpace: FlexibleSpaceBar(
       Hero(
         tag: &#39;image_${place.numid}&#39;,
         child: CachedNetworkImage(
-          placeholder: Container(
+          placeholder: (context, url) =&gt; Container(
             color: Colors.black12,
           ),
           imageUrl: place.pictures[0],
@@ -921,7 +924,7 @@ flexibleSpace: FlexibleSpaceBar(
 AspectRatio(
   aspectRatio: 1,
   child: CachedNetworkImage(
-    placeholder: Container(
+    placeholder: (context, url) =&gt; Container(
       color: Colors.black12,
     ),
     imageUrl:
