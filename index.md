@@ -7,7 +7,7 @@ Flutter works with existing code, is used by developers and organizations around
 
 **Try this** [90 minutes codelab](/workshop-flutter/#0)
 
-*Authors : Robin Rastel, Horacio Gonzales and Pierre Tibulle*
+*Authors : Romain Rastel, Horacio Gonzales and Pierre Tibulle*
 
 ### Workshop Kotlin Multiplatform
 
